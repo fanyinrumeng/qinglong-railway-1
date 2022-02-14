@@ -1,7 +1,7 @@
 FROM ubuntu
 ENV DEBIAN_FRONTEND=noninteractive
-ENV SOURCE_URL https://gdindex.yropo.workers.dev/source/zhenxun/
-ENV SOURCE_KEY ?rootId=0AHwYBwaQO4iYUk9PVA
+ENV SOURCE_URL https://pan.yropo.workers.dev/source/zhenxun/
+# ENV SOURCE_KEY ?rootId=0AHwYBwaQO4iYUk9PVA
 ENV ZHENXUN_URL https://github.com/HibiKier/zhenxun_bot
 ENV ZHENXUN_DIR /root/zhenxun_bot
 ENV CQHTTP_DIR /root/go-cqhttp
@@ -10,10 +10,10 @@ RUN apt update && apt install -y --no-install-recommends \
     && npm install -g wstunnel
 RUN git clone ${ZHENXUN_URL}.git ${ZHENXUN_DIR} \
     && mkdir /run/sshd ${CQHTTP_DIR} ${ZHENXUN_DIR}/data/draw_card ${ZHENXUN_DIR}/resources/img/draw_card \
-    && wget ${SOURCE_URL}go-cqhttp${SOURCE_KEY} -O ${CQHTTP_DIR}/go-cqhttp \
-    && wget ${SOURCE_URL}config.yml${SOURCE_KEY} -O ${CQHTTP_DIR}/config.yml \
-    && wget ${SOURCE_URL}data_draw_card.tar.gz${SOURCE_KEY} -O /root/.cache/data_draw_card.tar.gz \
-    && wget ${SOURCE_URL}img_draw_card.tar.gz${SOURCE_KEY} -O /root/.cache/img_draw_card.tar.gz \
+    && wget ${SOURCE_URL}go-cqhttp -O ${CQHTTP_DIR}/go-cqhttp \
+    && wget ${SOURCE_URL}config.yml -O ${CQHTTP_DIR}/config.yml \
+    && wget ${SOURCE_URL}data_draw_card.tar.gz -O /root/.cache/data_draw_card.tar.gz \
+    && wget ${SOURCE_URL}img_draw_card.tar.gz -O /root/.cache/img_draw_card.tar.gz \
     && pip install -r ${ZHENXUN_DIR}/requirements.txt \
     && tar -zxvf /root/.cache/data_draw_card.tar.gz -C ${ZHENXUN_DIR}/data/draw_card/ \
     && tar -zxvf /root/.cache/draw_card.tar.gz -C ${ZHENXUN_DIR}/resources/img/draw_card/ \
