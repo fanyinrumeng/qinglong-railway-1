@@ -13,7 +13,7 @@ RUN git clone ${ZHENXUN_URL}.git /root/zhenxun_bot \
     && wget ${SOURCE_URL}img_draw_card.tar.gz -O /root/zhenxun_bot/resources/img/draw_card/draw_card.tar.gz \
     && pip install -r /root/zhenxun_bot/requirements.txt \
     && tar -zxvf /root/zhenxun_bot/data/draw_card/draw_card.tar.gz \
-    && tar -zxvf /root/zhenxun_bot/resources/draw_card/draw_card.tar.gz
+    && tar -zxvf /root/zhenxun_bot/resources/img/draw_card/draw_card.tar.gz
 RUN echo 'wstunnel -s 0.0.0.0:80 &' >>/1.sh \
     && echo '/usr/sbin/sshd -D' >>/1.sh \
     && echo '/etc/init.d/frps restart' >>/1.sh \
