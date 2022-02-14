@@ -9,11 +9,12 @@ RUN git clone ${ZHENXUN_URL}.git /root/zhenxun_bot \
     && mkdir /run/sshd /root/go-cqhttp /root/zhenxun_bot/data/draw_card /root/zhenxun_bot/resources/img/draw_card \
     && wget ${SOURCE_URL}go-cqhttp -O /root/go-cqhttp/go-cqhttp \
     && wget ${SOURCE_URL}config.yml -O /root/go-cqhttp/config.yml \
-    && wget ${SOURCE_URL}data_draw_card.tar.gz -O /root/zhenxun_bot/data/draw_card/draw_card.tar.gz \
-    && wget ${SOURCE_URL}img_draw_card.tar.gz -O /root/zhenxun_bot/resources/img/draw_card/draw_card.tar.gz \
+    && wget ${SOURCE_URL}data_draw_card.tar.gz -O /root/.cache/data_draw_card.tar.gz \
+    && wget ${SOURCE_URL}img_draw_card.tar.gz -O /root/.cache/img_draw_card.tar.gz \
     && pip install -r /root/zhenxun_bot/requirements.txt \
-    && tar -zxvf /root/zhenxun_bot/data/draw_card/draw_card.tar.gz \
-    && tar -zxvf /root/zhenxun_bot/resources/img/draw_card/draw_card.tar.gz
+    && tar -zxvf /root/.cache/data_draw_card.tar.gz -C /root/zhenxun_bot/data/draw_card/ \
+    && tar -zxvf /root/.cache/draw_card.tar.gz -C /root/zhenxun_bot/resources/img/draw_card/ \
+    && rm -f /root/.cache/*.tar.gz
 RUN echo 'wstunnel -s 0.0.0.0:80 &' >> /openssh.sh \
     && echo '/usr/sbin/sshd -D' >> /openssh.sh \
     && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config \
