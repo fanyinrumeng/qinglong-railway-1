@@ -22,7 +22,7 @@ RUN git clone ${ZHENXUN_URL}.git ${ZHENXUN_DIR} \
 RUN echo 'wstunnel -s 0.0.0.0:80 &' >> /openssh.sh \
     && echo '/usr/sbin/sshd -D' >> /openssh.sh \
     && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config \
-    && sed -i "s/^#\?bind: str = .*/bind: str = \"${DATABASE_URL}\"/g" ${ZHENXUN_DIR}/configs/config.py \
+    && sed -i "/bind: str = \"\"/cbind: str = \"${DATABASE_URL}\"" ${ZHENXUN_DIR}/configs/config.py \
     && echo root:akashi520|chpasswd \
     && chmod 755 /openssh.sh ${CQHTTP_DIR}/go-cqhttp
 EXPOSE 80 443 3306 5432 8888
