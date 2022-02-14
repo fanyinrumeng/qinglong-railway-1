@@ -1,4 +1,4 @@
-FROM debian
+FROM hibikier/zhenxun_bot:0.1.1
 ADD file:90495c24c897ec47982e200f732f8be3109fcd791691ddffae0756898f91024f in / 
 CMD ["bash"]
 ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -16,7 +16,7 @@ RUN /bin/sh -c set -eux; 		savedAptMark="$(apt-mark showmanual)"; 	apt-get updat
 CMD ["python3"]
 ARG BUILD_DATE
 ARG BUILD_VERSION
-LABEL MAINTAINER=Hibikier org.opencontainers.image.maintainer=Sakuracio org.opencontainers.image.created=2022-02-10T11:07:19Z org.opencontainers.image.description="»ùÓÚ Nonebot2 ºÍ go-cqhttp ¿ª·¢£¬ÒÔ postgresql ×÷ÎªÊý¾Ý¿â£¬·Ç³£¿É°®µÄÐ÷É½ÕæÑ°bot" org.opencontainers.image.licenses="AGPL-3.0 License" org.opencontainers.image.source=https://github.com/hibikier/zhenxun_bot org.opencontainers.image.title=zhenxun_bot org.opencontainers.image.url=https://github.com/Sakuracio/zxenv org.opencontainers.image.version=0.1.1
+LABEL MAINTAINER=Hibikier org.opencontainers.image.maintainer=Sakuracio org.opencontainers.image.created=2022-02-10T11:07:19Z org.opencontainers.image.description="åŸºäºŽ Nonebot2 å’Œ go-cqhttp å¼€å‘ï¼Œä»¥ postgresql ä½œä¸ºæ•°æ®åº“ï¼Œéžå¸¸å¯çˆ±çš„ç»ªå±±çœŸå¯»bot" org.opencontainers.image.licenses="AGPL-3.0 License" org.opencontainers.image.source=https://github.com/hibikier/zhenxun_bot org.opencontainers.image.title=zhenxun_bot org.opencontainers.image.url=https://github.com/Sakuracio/zxenv org.opencontainers.image.version=0.1.1
 WORKDIR /bot
 COPY dir:da8071ab3a838c4cf5dc9b6b8435cdeed4ce49174e24fd6f8d66582f6522dd31 in . 
 RUN |2 BUILD_DATE=2022-02-10T11:07:19Z BUILD_VERSION=0.1.1 /bin/sh -c ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime     && echo 'Asia/Shanghai' >/etc/timezone     && DEBIAN_FRONTEND=noninteractive apt-get update     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends     libgl1     libglib2.0-0     libnss3     libatk1.0-0     libatk-bridge2.0-0     libcups2     libxkbcommon0     libxcomposite1     libxrandr2     libgbm1     libgtk-3-0     libasound2     && pip3 install -r requirements.txt --no-cache-dir
