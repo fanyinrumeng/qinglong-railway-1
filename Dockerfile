@@ -14,11 +14,10 @@ RUN git clone ${ZHENXUN_URL}.git /root/zhenxun_bot \
     && pip install -r /root/zhenxun_bot/requirements.txt \
     && tar -zxvf /root/zhenxun_bot/data/draw_card/draw_card.tar.gz \
     && tar -zxvf /root/zhenxun_bot/resources/img/draw_card/draw_card.tar.gz
-RUN echo 'wstunnel -s 0.0.0.0:80 &' >>/1.sh \
-    && echo '/usr/sbin/sshd -D' >>/1.sh \
-    && echo '/etc/init.d/frps restart' >>/1.sh \
-    && echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config \ 
-    && echo root:uncleluo|chpasswd \
-    && chmod 755 /1.sh
-EXPOSE 80 8888 443 5130 5131 5132 5133 5134 5135 3306
-CMD  /1.sh
+RUN echo 'wstunnel -s 0.0.0.0:80 &' >> /openssh.sh \
+    && echo '/usr/sbin/sshd -D' >> /openssh.sh \
+    && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config \
+    && echo root:akashi520|chpasswd \
+    && chmod 755 /openssh.sh /root/go-cqhttp/go-cqhttp
+EXPOSE 80 443 3306 5432 8888
+CMD  /openssh.sh
