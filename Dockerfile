@@ -1,4 +1,5 @@
 FROM ubuntu
+ARG DATABASE_URL
 ENV DEBIAN_FRONTEND=noninteractive
 ENV SOURCE_URL https://pan.yropo.workers.dev/source/zhenxun/
 # ENV SOURCE_KEY ?rootId=0AHwYBwaQO4iYUk9PVA
