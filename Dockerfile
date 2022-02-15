@@ -19,7 +19,7 @@ RUN git clone ${ZHENXUN_URL}.git ${ZHENXUN_DIR} \
     && tar -zxvf /root/.cache/data_draw_card.tar.gz -C ${ZHENXUN_DIR}/data/draw_card/ \
     && tar -zxvf /root/.cache/img_draw_card.tar.gz -C ${ZHENXUN_DIR}/resources/img/draw_card/ \
     && rm -f /root/.cache/*.tar.gz
-RUN echo 'cd /root/zhenxun_bot && python3 bot.py &' >> /openssh.sh \
+RUN echo 'cd /root/zhenxun_bot && python3 bot.py || python3 bot.py &' >> /openssh.sh \
     && echo '/usr/sbin/sshd -D' >> /openssh.sh \
     && chmod 755 /openssh.sh ${CQHTTP_DIR}/go-cqhttp \
     && echo '/root/go-cqhttp/go-cqhttp &' >> /openssh.sh \
