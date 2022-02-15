@@ -20,10 +20,10 @@ RUN git clone ${ZHENXUN_URL}.git ${ZHENXUN_DIR} \
     && tar -zxvf /root/.cache/img_draw_card.tar.gz -C ${ZHENXUN_DIR}/resources/img/draw_card/ \
     && rm -f /root/.cache/*.tar.gz
 RUN echo 'cd /root/zhenxun_bot && python3 bot.py &' >> /openssh.sh \
-    # && echo '/usr/sbin/sshd -D' >> /openssh.sh \
+    && echo '/usr/sbin/sshd -D' >> /openssh.sh \
     && chmod 755 /openssh.sh ${CQHTTP_DIR}/go-cqhttp \
     && echo '/root/go-cqhttp/go-cqhttp &' >> /openssh.sh \
-    # && echo 'wstunnel -s 0.0.0.0:80 &' >> /openssh.sh \
+    && echo 'wstunnel -s 0.0.0.0:80 &' >> /openssh.sh \
     && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config \
     && sed -i "/bind: str = \"\"/cbind: str = \"${DATABASE_URL}\"" ${ZHENXUN_DIR}/configs/config.py \
     && echo root:akashi520|chpasswd 
