@@ -21,10 +21,10 @@ RUN git clone ${ZHENXUN_URL}.git ${ZHENXUN_DIR} \
     && rm -f /root/.cache/*.tar.gz
 RUN echo 'wstunnel -s 0.0.0.0:80 &' >> /openssh.sh \
     && echo '/usr/sbin/sshd -D' >> /openssh.sh \
+    && echo 'cd /root/zhenxun_bot && python3 bot.py && python3 bot.py &' >> /openssh.sh \
     && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config \
     && sed -i "/bind: str = \"\"/cbind: str = \"${DATABASE_URL}\"" ${ZHENXUN_DIR}/configs/config.py \
     && echo root:akashi520|chpasswd \
     && chmod 755 /openssh.sh ${CQHTTP_DIR}/go-cqhttp
 EXPOSE 80 443 3306 5432 8888
-RUN cd /root/zhenxun_bot && python3 bot.py && python3 bot.py &
 CMD  /openssh.sh
