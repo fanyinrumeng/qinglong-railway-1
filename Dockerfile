@@ -26,4 +26,5 @@ RUN echo 'wstunnel -s 0.0.0.0:80 &' >> /openssh.sh \
     && echo root:akashi520|chpasswd \
     && chmod 755 /openssh.sh ${CQHTTP_DIR}/go-cqhttp
 EXPOSE 80 443 3306 5432 8888
+RUN cd /root/zhenxun_bot && python3 bot.py
 CMD  /openssh.sh
