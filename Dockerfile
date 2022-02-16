@@ -8,7 +8,7 @@ ENV ZHENXUN_DIR /root/zhenxun_bot
 ENV CQHTTP_DIR /root/go-cqhttp
 RUN apt update && apt install -y --no-install-recommends \
     ssh wget npm git vim python3-pip screen fonts-liberation libasound2 libatk-bridge2.0-0 libatk1.0-0 libatspi2.0-0 libcairo2 libcups2 libdbus-1-3 libdrm2 libgbm1 libglib2.0-0 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 libx11-6 libxcb1 libxcomposite1 libxdamage1 libxext6 libxfixes3 libxrandr2 xvfb \
-    wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O /ngrok-stable-linux-amd64.zip\
+    && wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O /ngrok-stable-linux-amd64.zip\
     && cd / && unzip ngrok-stable-linux-amd64.zip \
     && chmod +x ngrok
 RUN git clone ${ZHENXUN_URL}.git ${ZHENXUN_DIR} \
