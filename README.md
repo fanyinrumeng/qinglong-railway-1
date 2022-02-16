@@ -1,10 +1,11 @@
 # Railway-docker-zhenxun
 
-使用 railway 一键部署 zhenxun——bot
+使用 railway 一键部署 zhenxun_bot
 
 ## 一、注册 railway 账号和 ngrok 账号
 
 [railway](https://railway.app/)
+
 [ngrok](https://dashboard.ngrok.com/auth)
 
 ## 二、部署
