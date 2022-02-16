@@ -10,7 +10,7 @@
 
 ## 二、部署
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/AkashiCoin/Railway-docker-zhenxun&plugins=postgresql&envs=NGROK_TOKEN&referralCode=IGBnmG)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/AkashiCoin/qinglong-Railway&envs=PORT&PORTDefault=5700&referralCode=IGBnmG)
 
 1、点击上方的按钮，如果你未注册，则可以直接使用 Github 账号登录；若已登录，就会提醒你根据此模板在 github 中`新建项目`
 
