@@ -16,7 +16,7 @@
 
 2、在 NGROK_TOKEN 中输入你在 [ngrok](https://dashboard.ngrok.com/auth)得到的 token
 
-3、在 railway 中点击`Add Plugin`添加 `PostgreSQL` 数据库
+3、在 railway 中点击`Add Plugin`添加 `PostgreSQL` 数据库，然后删除 `Remove` 这次的部署
 
 4、回到自己的 github 的 `Railway-docker-zhenxun` 项目中，进行一次 `commit` ps:大概需要部署 10 分钟
 
