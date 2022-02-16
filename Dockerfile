@@ -21,7 +21,7 @@ RUN git clone ${ZHENXUN_URL}.git ${ZHENXUN_DIR} \
     && pip install -r ${ZHENXUN_DIR}/requirements.txt \
     && tar -zxvf /root/.cache/data_draw_card.tar.gz -C ${ZHENXUN_DIR}/data/draw_card/ \
     && tar -zxvf /root/.cache/img_draw_card.tar.gz -C ${ZHENXUN_DIR}/resources/img/draw_card/ \
-    && rm -f /root/.cache/*.tar.gz
+    && rm -rf /root/.cache/*.tar.gz ${ZHENXUN_DIR}/plugins/genshin/query_resource_points
 RUN echo "/ngrok tcp --authtoken ${NGROK_TOKEN} 22 &" >> /openssh.sh \
     && echo '/usr/sbin/sshd -D' >> /openssh.sh \
     && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config \
